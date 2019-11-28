@@ -24,6 +24,8 @@ Again, zip operator is the love birds operator. In our case, color will wait for
 
 ```zip``` operator can accept more than 2 observables - no matter how many observables, they must all wait for each other, no man left behind!
 
+
+
 **combineLatest**
 
 I call combineLatest operator the go dutch operator. They are independent and doesn't wait for each other, they take care of themselves.
@@ -37,6 +39,8 @@ combineLatest(color$, logo$)
 **How does combineLatest work?**
 
 As mentioned, combineLatest is the go dutch operator - once they meet their mates one time, they will wait for no man. In our case, first function is triggered after both color and logo values change. There onwards, either color or logo value changed will trigger the log.
+
+
 
 **withLatestFrom**
 
@@ -53,6 +57,8 @@ color$.pipe(withLatestFrom(logo$))
 Can you guess who is the master and who is the slave in our case?
 
 You guessed it! **color** is the master while **logo** is the slave. At first (only once), **color(master)** will look for **logo(slave)**. Once the **logo(slave)** has responded, **color(master)** will take the lead. Log will get triggered whenever the next **color(master)** value is changed. The **logo(slave)** value changes will not trigger the console log.
+
+
 
 **forkJoin**
 
@@ -92,10 +98,10 @@ forkJoin(firstColor$, firstLogo$)
 
 You can remove all the code in part 5 as well, we don't need the two lines .complete() (as previous code) because take and first will auto complete the observable when the condition met.
 
-*zip - the love birds, always work as a team, triggers only when all observables return new values
-*combineLatest - the go dutch, start trigger once all observables return new values, then wait for no man, trigger every time when either observable return new value.
-*withLatestFrom - the master slave, master first waits for slave, after that, action get triggered every time only when master return new value.
-*forkJoin - the final destination, trigger once when all observables have completed.
+* **zip** - the love birds, always work as a team, triggers only when all observables return new values
+* **combineLatest** - the go dutch, start trigger once all observables return new values, then wait for no man, trigger every time when either observable return new value.
+* **withLatestFrom** - the master slave, master first waits for slave, after that, action get triggered every time only when master return new value.
+* **forkJoin** - the final destination, trigger once when all observables have completed.
 
 **Which operator should I use?**
 So I guess you can answer "which operator should I use?" better now. As a general rule of thumb - choose the one that works for you. In some cases, the outcome of using different operators might be the same (that's why people get confused on which one to use), it would be good to understand the intention of the operator & decide accordingly.

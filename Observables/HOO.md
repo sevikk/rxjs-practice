@@ -38,11 +38,11 @@ interval(1000).pipe(
 
 **What does it mean?**
 
-*The top line represents the first stream that was created by the outermost observable, interval(1000)
-*Grey circles on that line represent new observables being created inside the map function. Each one was created by interval(500)
-*Each line down the screen represents a new stream from one of those new observables
-*Each new line across the screen with numbers represents the output of an observable created by interval(500)
-*Each successive internal stream starts further to the right because it begins later.
+* The top line represents the first stream that was created by the outermost observable, interval(1000)
+* Grey circles on that line represent new observables being created inside the map function. Each one was created by interval(500)
+* Each line down the screen represents a new stream from one of those new observables
+* Each new line across the screen with numbers represents the output of an observable created by interval(500)
+* Each successive internal stream starts further to the right because it begins later.
 
 **Flattening Higher-Order Observables into regular, First-Order Observables**
 
